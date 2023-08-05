@@ -1,3 +1,3 @@
 <?php
 
-echo "hello kuharica";
+require 'index.view.php';
