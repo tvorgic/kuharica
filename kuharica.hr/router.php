@@ -1,5 +1,7 @@
 <?php
 
+require 'functions.php';
+
 //parsing -> converting data from one format to another
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
@@ -8,6 +10,7 @@ $routes = [
   '/about' => 'controllers/about.php',
   '/contact' => 'controllers/contact.php',
 ];
+
 
 function routeToController($uri, $routes){
   if (array_key_exists($uri, $routes)){
@@ -20,8 +23,9 @@ function routeToController($uri, $routes){
 function abort($code = 404){
   http_response_code($code);
   require "views/{$code}.php";
-  
+
   die();
 }
+
 
 routeToController($uri, $routes);
