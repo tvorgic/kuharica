@@ -9,10 +9,17 @@ $config = require 'config.php';
 
 
 
-
 $db = new Database($config['database']);
 
-$recept = $db->query("select * from recept")->fetchAll();
+
+
+
+$sifra = $_GET['sifra'];
+
+$query = "select * from recept where sifra = :sifra";
+
+$recept = $db->query($query, [':sifra' => $sifra])->fetch();
+
 
 
 dd($recept);
