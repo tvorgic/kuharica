@@ -9,7 +9,7 @@ $heading = 'Recipes';
 
 
 
-$recipes = $db->query('select * from recept')->fetchAll();
+$recipes = $db->query('select * from recept')->get();
 
 require 'views/recipes.view.php';
 
