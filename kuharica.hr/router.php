@@ -1,19 +1,5 @@
 <?php
 
-require 'functions.php';
-
-//parsing -> converting data from one format to another
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-$routes = [
-  '/' => 'controllers/index.php',
-  '/recipes' => 'controllers/recipes.php',
-  '/recipe' => 'controllers/recipe.php',
-  '/about' => 'controllers/about.php',
-  '/contact' => 'controllers/contact.php',
-];
-
-
 function routeToController($uri, $routes){
   if (array_key_exists($uri, $routes)){
     require $routes[$uri];
@@ -28,6 +14,12 @@ function abort($code = 404){
 
   die();
 }
+
+
+$routes = require 'routes.php';
+//parsing -> converting data from one format to another
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
 
 
 routeToController($uri, $routes);
