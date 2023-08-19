@@ -1,9 +1,17 @@
 <?php
 
+$config = require 'config.php';
+$db = new Database($config['database']);
+
+
+
 $heading = 'Create recipe';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-  dd($_POST);
+  $db->query('INSERT INTO recept (naziv, opis) VALUES(:naziv, :opis)', [
+    'naziv' => $_POST['naziv'],
+    'opis' => $_POST['opis']
+  ]);
 }
 
 

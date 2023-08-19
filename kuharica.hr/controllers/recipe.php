@@ -9,7 +9,7 @@ $db = new Database($config['database']);
 $heading = 'Recipe';
 
 
-$currentUser = 3;
+$currentUser = 1;
 
 
 
