@@ -1,5 +1,7 @@
 <?php
 
+require 'Validator.php';
+
 $config = require 'config.php';
 $db = new Database($config['database']);
 
@@ -12,13 +14,13 @@ $heading = 'Create recipe';
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
   $errors = [];
 
-  if (strlen($_POST['opis']) === 0){
-    $errors['opis'] = 'Recipe description is required';
+  
+
+  if (! Validator:: string($_POST['opis'], 1, 10000)){
+    $errors['opis'] = 'Recipe description of no more than 10 000 characters is required';
   }
 
-  if (strlen($_POST['opis']) > 10000){
-    $errors['opis'] = 'Recipe description is too long';
-  }
+ 
 
 
     if (empty($errors)) {
