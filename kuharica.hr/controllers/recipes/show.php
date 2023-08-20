@@ -2,12 +2,8 @@
 
 
 
-$config = require 'config.php';
-
+$config = require base_path('config.php');
 $db = new Database($config['database']);
-
-$heading = 'Recipe';
-
 
 $currentUser = 1;
 
@@ -18,14 +14,11 @@ $recipe = $db->query('select * from recept where sifra = :sifra', ['sifra' => $_
 authorize($recipe['sifra'] === $currentUser);
 
 
+view('recipes/show.view.php', [
+  'heading' => 'Recipe',
+  'recipe' => $recipe
+]);
 
-
-
-if ($recipe ['sifra'] !== $currentUser) {
-  abort(Response::FORBIDDEN);
-}
-
-require 'views/recipes/show.view.php';
 
 
 

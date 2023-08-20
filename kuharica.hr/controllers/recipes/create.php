@@ -2,26 +2,18 @@
 
 require 'Validator.php';
 
-$config = require 'config.php';
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
-
-
-$heading = 'Create recipe';
-
+$errors = []; 
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-  $errors = [];
+  $errors = [];  
 
-  
-
-  if (! Validator:: string($_POST['opis'], 1, 10000)){
+  if (! Validator::string($_POST['opis'], 1, 10000)){
     $errors['opis'] = 'Recipe description of no more than 10 000 characters is required';
   }
-
- 
-
 
     if (empty($errors)) {
       $db->query('INSERT INTO recept (naziv, opis) VALUES(:naziv, :opis)', [
@@ -32,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 
 
-
-
-
-require 'views/recipes/create.view.php';
+view('recipes/create.view.php', [
+  'heading' => 'Create Recipe',
+  'errors' => $errors
+]);

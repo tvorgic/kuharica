@@ -1,17 +1,16 @@
 <?php
 
-$config = require 'config.php';
+$config = require base_path('config.php');
 $db = new Database($config['database']);
-
-
-
-$heading = 'Recipes';
-
-
 
 $recipes = $db->query('select * from recept')->get();
 
-require 'views/recipes/index.view.php';
+view('recipes/index.view.php', [
+  'heading' => 'My Recipes',
+  'recipes' => $recipes,
+]);
+
+
 
 
 
