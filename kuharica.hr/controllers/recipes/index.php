@@ -11,7 +11,7 @@ $heading = 'Recipes';
 
 $recipes = $db->query('select * from recept')->get();
 
-require 'views/recipes.view.php';
+require 'views/recipes/index.view.php';
 
 
 

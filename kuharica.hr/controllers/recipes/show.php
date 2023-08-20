@@ -25,7 +25,7 @@ if ($recipe ['sifra'] !== $currentUser) {
   abort(Response::FORBIDDEN);
 }
 
-require 'views/recipe.view.php';
+require 'views/recipes/show.view.php';
 
 
 
