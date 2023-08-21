@@ -10,7 +10,9 @@
             <a href="/notes" class="text-blue-500 underline">go back...</a>
         </p>
 
-        <p><?= $recipe['opis'] ?></p>
+        <p><?= htmlspecialchars($recipe['opis']) ?></p>
+
+        
     </div>
 </main>
  
