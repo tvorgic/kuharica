@@ -12,7 +12,10 @@
 
         <p><?= htmlspecialchars($recipe['opis']) ?></p>
 
-        
+        <form class="mt-6" method="POST">
+            <button class="text-sm text-red-500">Delete</button>
+            <input type="hidden" name="sifra" value="<?=$recipe['sifra']?>">
+        </form>
     </div>
 </main>
  

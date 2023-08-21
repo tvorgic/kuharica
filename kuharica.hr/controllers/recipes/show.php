@@ -6,7 +6,31 @@ use Core\Database;
 $config = require base_path('config.php');
 $db = new Database($config['database']);
 
-$currentUser = 1;
+$currentUser = 10;
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $recipe = $db->query('select * from recept where sifra= :sifra', [
+    'sifra' => $_GET['sifra']
+  ])->findOrFAil();
+
+  authorize($recipe['sifra'] === $currentUser);
+
+  $db->query('delete from recept where sifra = :sifra',[
+    'sifra' => $_GET['sifra']
+  ]); 
+
+  header('location: /recipes');
+  exit();
+
+
+} else {
+  $recipe = $db->query('select * from recept where sifra = :sifra', [
+    'sifra' => $_GET['sifra']
+  ])->findOrFAil();
+}
+
 
 
 
