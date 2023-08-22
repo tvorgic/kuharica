@@ -1,6 +1,37 @@
 <?php
 
-function routeToController($uri, $routes){
+
+class Router 
+{
+  public function get()
+  {
+
+  }
+
+  public function post()
+  {
+    
+  }
+
+  public function delete()
+  {
+    
+  }
+
+  public function patch()
+  {
+    
+  }
+
+  public function put()
+  {
+    
+  }
+
+}
+/* 
+
+ function routeToController($uri, $routes){
   if (array_key_exists($uri, $routes)){
     require base_path($routes[$uri]);
   } else {
@@ -22,4 +53,4 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 
 
-routeToController($uri, $routes);
+routeToController($uri, $routes);  */
