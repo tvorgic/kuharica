@@ -22,7 +22,7 @@
 
 
         <form class="mt-6" method="POST">
-            <input type="hidden" name="method">
+            <input type="hidden" name="method" value="DELETE">
             <button class="text-sm text-red-500">Delete</button>
             <input type="hidden" name="sifra" value="<?=$recipe['sifra']?>">
         </form>
