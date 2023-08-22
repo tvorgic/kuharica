@@ -54,6 +54,15 @@ class Router
     ];
   }
 
+  public function route($uri)
+  {
+    foreach ($this->routes as $route) {
+      if ($route['uri'] === $uri) {
+        return require base_path($route['controller']);
+      }
+    }
+  }
+
 }
 /* 
 
@@ -73,10 +82,4 @@ function abort($code = 404){
 }
 
 
-$routes = require base_path('routes.php');
-//parsing -> converting data from one format to another
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-
-
-routeToController($uri, $routes);  */
+ */

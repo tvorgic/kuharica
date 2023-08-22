@@ -11,5 +11,9 @@
    */
 
 
+   $router->get('/', 'controllers/index.php');
+   $router->delete('/', 'controllers/notes/destroy.php');
+
+   
    dd($router->routes);
  

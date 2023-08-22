@@ -13,7 +13,15 @@ spl_autoload_register(function ($class) {
 });
 
 
-new \Core\Router();
+$router = new \Core\Router();
+
+$routes = require base_path('routes.php');
+//parsing -> converting data from one format to another
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
+
+
+$router->route($uri);
 
 
 
