@@ -1,13 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
+ $db = App::resolve(Database::class);
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
-
-
-$currentUser = 3;
+$currentUser = 1;
 
 
   $recipe = $db->query('select * from recept where sifra = :sifra', [

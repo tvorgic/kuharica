@@ -1,18 +1,19 @@
 <?php
 
 use Core\Validator;
+use Core\App;
 use Core\Database;
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
-$rerrors = [];
 
+
+
+$errors = [];
 
 if (! Validator::string($_POST['opis'], 1, 10000)){
-
  $errors['opis'] = 'Recipe description of no more than 10 000 characters is required';
-  }
+  } 
 
 
 

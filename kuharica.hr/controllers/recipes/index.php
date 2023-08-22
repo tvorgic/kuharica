@@ -1,11 +1,9 @@
 <?php
-
+use Core\App;
 use Core\Database;
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
-
-$recipes = $db->query('select * from recept')->get();
+$db = App::resolve(Database::class);
+$recipes = $db->query('select * from recept where sifra = 1')->get();
 
 view('recipes/index.view.php', [
   'heading' => 'My Recipes',
