@@ -1,6 +1,6 @@
 <?php
 
-return [
+/* return [
   '/' => 'controllers/index.php',
   '/about' => 'controllers/about.php',
   '/recipes' => 'controllers/recipes/index.php',
@@ -8,5 +8,8 @@ return [
   '/recipes/create' => 'controllers/recipes/create.php',
   '/contact' => 'controllers/contact.php',
 ];
-  
+   */
+
+
+   dd($router->routes);
  

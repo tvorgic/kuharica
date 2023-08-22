@@ -13,8 +13,7 @@ spl_autoload_register(function ($class) {
 });
 
 
-require base_path('Core/router.php');
-
+new \Core\Router();
 
 
 
