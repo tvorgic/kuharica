@@ -10,6 +10,11 @@
    $router->delete('/recipe', 'controllers/recipes/destroy.php');
 
 
+
+   $router->get('/recipe/edit', 'controllers/recipes/edit.php');
+   $router->patch('/recipe', 'controllers/recipes/update.php');
+
+
    $router->get('/recipes/create', 'controllers/recipes/create.php');
    $router->post('/recipes', 'controllers/recipes/store.php');
    

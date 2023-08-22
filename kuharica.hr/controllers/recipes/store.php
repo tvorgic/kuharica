@@ -6,9 +6,6 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
-
-
-
 $errors = [];
 
 if (! Validator::string($_POST['opis'], 1, 10000)){
