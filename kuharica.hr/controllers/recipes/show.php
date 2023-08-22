@@ -7,7 +7,7 @@ $config = require base_path('config.php');
 $db = new Database($config['database']);
 
 
-$currentUser = 1;
+$currentUser = 4;
 
 
 
