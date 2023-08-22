@@ -3,9 +3,17 @@
 
 class Router 
 {
-  public function get()
-  {
 
+  protected $routes = [];
+
+
+  public function get($uri, $controller)
+  {
+    $this->routes[] = [
+      'uri' => $uri,
+      'controller' => $controller,
+      'method' => 'GET'
+    ];
   }
 
   public function post()
