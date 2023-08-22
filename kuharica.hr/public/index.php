@@ -21,7 +21,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 
 
-$router->route($uri);
+$router->route($uri, $method);
 
 
 
