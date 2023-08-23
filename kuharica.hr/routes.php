@@ -18,6 +18,11 @@
    $router->get('/recipes/create', 'controllers/recipes/create.php');
    $router->post('/recipes', 'controllers/recipes/store.php');
    
+   
+   
+   $router->get('/register', 'controllers/registration/create.php');
+   $router->post('/register', 'controllers/registration/store.php');
+   
 
 
    
