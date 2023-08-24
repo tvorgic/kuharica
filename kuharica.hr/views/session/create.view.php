@@ -20,8 +20,8 @@
                     </div>
 
                     <div>
-                        <label for="password" class="sr-only">Password</label>
-                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                        <label for="pass" class="sr-only">Password</label>
+                        <input id="pass" name="pass" type="password" autocomplete="current-password" required
                                class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                placeholder="Password">
                     </div>
@@ -40,8 +40,8 @@
                         <li class="text-red-500 text-xs mt-2"><?= $errors['email'] ?></li>
                     <?php endif; ?>
 
-                    <?php if (isset($errors['password'])) : ?>
-                        <li class="text-red-500 text-xs mt-2"><?= $errors['password'] ?></li>
+                    <?php if (isset($errors['pass'])) : ?>
+                        <li class="text-red-500 text-xs mt-2"><?= $errors['pass'] ?></li>
                     <?php endif; ?>
                 </ul>
             </form>

@@ -26,7 +26,7 @@
    
    
    $router->get('/login', 'controllers/sessions/create.php')->only('guest');
-   $router->post('/sessions', 'controllers/sessions/store.php')->only('guest');
+   $router->post('/session', 'controllers/session/store.php')->only('guest');
    
 
 
