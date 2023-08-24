@@ -5,7 +5,7 @@ use Core\App;
 
 $email = $_POST['email'];
 
-$password = $_POST['password'];
+$pass = $_POST['pass'];
 
 
 $errors = [];
@@ -14,8 +14,8 @@ if (! Validator::email($email)) {
   $errors['email'] = 'Please provide a valid email address...';
 }
 
-if (! Validator::string($password, 6, 255)) {
-  $errors['password'] = 'Please provide a password of min 6 characters...';
+if (! Validator::string($pass, 6, 255)) {
+  $errors['pass'] = 'Please provide a password of min 6 characters...';
 }
 
 if (! empty($errors)) {
