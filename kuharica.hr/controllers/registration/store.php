@@ -36,7 +36,7 @@ if ($user) {
 } else {
   $db->query('INSERT INTO korisnik(email, pass) VALUES(:email, :pass)', [
       'email' => $email,
-      'pass' => $pass 
+      'pass' => password_hash($pass, PASSWORD_BCRYPT) 
   ]);
 
   $_SESSION['user'] = [
