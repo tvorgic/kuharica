@@ -5,7 +5,7 @@
    $router->get('/contact', 'controllers/contact.php');
 
 
-   $router->get('/recipes', 'controllers/recipes/index.php')->only('auth');
+   $router->get('/recipes', 'controllers/recipes/index.php');//->only('auth');
    $router->get('/recipe', 'controllers/recipes/show.php');
    $router->delete('/recipe', 'controllers/recipes/destroy.php');
 
@@ -22,6 +22,10 @@
    
    $router->get('/register', 'controllers/registration/create.php')->only('guest');
    $router->post('/register', 'controllers/registration/store.php');
+   
+   
+   
+   $router->get('/login', 'controllers/sessions/create.php');
    
 
 
