@@ -10,6 +10,7 @@ $email = $_POST['email'];
 $pass = $_POST['pass'];
 
 $errors = [];
+
 if (!Validator::email($email)) {
     $errors['email'] = 'Please provide a valid email address.';
 }

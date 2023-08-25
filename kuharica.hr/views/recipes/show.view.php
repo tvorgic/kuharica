@@ -9,7 +9,7 @@
         <h1><?= $recipe['naziv'] ?> By <?= $recipe['ime'] ?> <?= $recipe['prezime'] ?></h1>
 
         <p class="mb-6">
-            <a href="/notes" class="text-blue-500 underline">go back...</a>
+            <a href="/recipes" class="text-blue-500 underline">go back...</a>
         </p>
 
         <p><?= htmlspecialchars($recipe['opis']) ?></p>

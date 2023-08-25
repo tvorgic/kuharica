@@ -2,9 +2,12 @@
 
 use Core\Validator;
 use Core\App;
+use Core\Database;
+
+$db = App::resolve(Database::class);
+
 
 $email = $_POST['email'];
-
 $pass = $_POST['pass'];
 
 
@@ -24,24 +27,25 @@ if (! empty($errors)) {
   ]);
 }
 
-$db = App::resolve(Database::class);
 
 $user = $db->query('select * from korisnik where email = :email', [
   'email' => $email
 ])->find();
 
 if ($user) {
+
   header('location: /');
   exit();
+
 } else {
+
   $db->query('INSERT INTO korisnik(email, pass) VALUES(:email, :pass)', [
       'email' => $email,
       'pass' => password_hash($pass, PASSWORD_BCRYPT) 
   ]);
 
-  $_SESSION['user'] = [
-      'email' => $email
-  ];
+
+  login($user);
 
   header('location: /');
   exit();
