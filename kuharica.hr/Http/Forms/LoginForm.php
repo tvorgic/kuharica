@@ -30,4 +30,9 @@ class LoginForm
     
     return empty($this->errors);
   }
+
+  public function error($field, $message)
+  {
+    $this->errors[$field] = $message;
+  }
 }
