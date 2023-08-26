@@ -1,39 +1,39 @@
 <?php
 
-   $router->get('/', 'controllers/index.php');
-   $router->get('/about', 'controllers/about.php');
-   $router->get('/contact', 'controllers/contact.php');
+   $router->get('/', 'index.php');
+   $router->get('/about', 'about.php');
+   $router->get('/contact', 'contact.php');
 
 
-   $router->get('/recipes', 'controllers/recipes/index.php');//->only('auth');
+   $router->get('/recipes', 'recipes/index.php');//->only('auth');
 
-   $router->get('/recipe', 'controllers/recipes/show.php');
+   $router->get('/recipe', 'recipes/show.php');
 
-   $router->delete('/recipe', 'controllers/recipes/destroy.php');
-
-
-
-   $router->get('/recipe/edit', 'controllers/recipes/edit.php');
-
-   $router->patch('/recipe', 'controllers/recipes/update.php');
+   $router->delete('/recipe', 'recipes/destroy.php');
 
 
-   $router->get('/recipes/create', 'controllers/recipes/create.php');
+
+   $router->get('/recipe/edit', 'recipes/edit.php');
+
+   $router->patch('/recipe', 'recipes/update.php');
+
+
+   $router->get('/recipes/create', 'recipes/create.php');
    
-   $router->post('/recipes', 'controllers/recipes/store.php');
-   
-   
-   
-   $router->get('/register', 'controllers/registration/create.php')->only('guest');
-   $router->post('/register', 'controllers/registration/store.php')->only('guest');
+   $router->post('/recipes', 'recipes/store.php');
    
    
    
-   $router->get('/login', 'controllers/session/create.php')->only('guest');
+   $router->get('/register', 'registration/create.php')->only('guest');
+   $router->post('/register', 'registration/store.php')->only('guest');
+   
+   
+   
+   $router->get('/login', 'session/create.php')->only('guest');
 
-   $router->post('/session', 'controllers/session/store.php')->only('guest');
+   $router->post('/session', 'session/store.php')->only('guest');
 
-   $router->delete('/session', 'controllers/session/destroy.php')->only('auth');
+   $router->delete('/session', 'session/destroy.php')->only('auth');
    
 
 
