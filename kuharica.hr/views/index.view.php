@@ -9,8 +9,7 @@
       <p>This is a simple web page with some easy recipes</p>
 
     </div>
-    
-
+   
 
 
   </main>
