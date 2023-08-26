@@ -27,6 +27,8 @@ if (! Validator::string($_POST['opis'], 1, 10000)){
       'opis' => $_POST['opis']
      ]);
 
+
+
      header('location: /recipes');
      die();
   
