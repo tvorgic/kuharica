@@ -1,6 +1,7 @@
 <?php
 
 use Core\Session;
+use Core\ValidationException;
 
 session_start();
 
@@ -35,7 +36,15 @@ $method = isset($_POST['_method']) ? $_POST['_method'] : $_SERVER['REQUEST_METHO
 
 
 
-$router->route($uri, $method);
+try {
+  $router->route($uri, $method);
+} 
+  catch (ValidationException $exception) {
+  Session::flash('errors', $exception->errors);
+  Session::flash('old', $exception->old);
+
+  return redirect($router->previousUrl());
+}
 
 Session::unflash();
 

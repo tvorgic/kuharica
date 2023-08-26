@@ -5,7 +5,7 @@
    $router->get('/contact', 'contact.php');
 
 
-   $router->get('/recipes', 'recipes/index.php');//->only('auth');
+   $router->get('/recipes', 'recipes/index.php')->only('auth');
 
    $router->get('/recipe', 'recipes/show.php');
 
