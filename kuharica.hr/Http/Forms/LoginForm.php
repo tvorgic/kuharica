@@ -10,7 +10,7 @@ use Core\Validator;
 class LoginForm
 {
 
-  protected $errors = [];
+  protected  $errors = []; 
 
   public function __construct(public array $attributes)
   {
@@ -20,28 +20,21 @@ class LoginForm
   
   if (!Validator::string($attributes['pass'])) {
     $this->errors['pass'] = 'Please provide a valid password.';
-  }
+    }
   }
 
-  public function errors()
-  {
-    return $this->errors;
-  }
+ 
 
   public static function validate($attributes)
   {
     
     $instance = new static($attributes);
 
-    if(($instance->failed())) {
-     
-      $instance = new static($attributes);
-
       return $instance->failed() ? $instance->throw() : $instance;
     }
 
      
-  }
+  
 
   public function throw()
   {
@@ -54,10 +47,16 @@ class LoginForm
 
   }
 
+  public function errors()
+  {
+      return $this->errors;
+  }
+
+
   public function error($field, $message)
   {
     $this->errors[$field] = $message;
-    
+
     return $this;
   }
 }

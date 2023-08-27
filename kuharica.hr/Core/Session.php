@@ -34,7 +34,7 @@ class Session
         $_SESSION = [];
     }
 
-    public static function destroy()
+    public static function destroy() 
     {
         static::flush();
 
