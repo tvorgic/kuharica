@@ -34,7 +34,7 @@ create table chef(
 );
 
 create table recept(
-    sifra int not null primary key,
+    sifra int not null primary key AUTO_INCREMENT,
     naziv varchar(50)  not null,
     opis varchar(5000) not null,
     vrijeme_izrade varchar(50),
