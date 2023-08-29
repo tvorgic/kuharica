@@ -45,7 +45,6 @@ if ($user) {
       'pass' => password_hash($pass, PASSWORD_BCRYPT) 
   ]);
 
-
   Authenticator::login($user);
 
   header('location: /');

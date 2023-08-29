@@ -2,8 +2,9 @@
 # Izvođenje naredbi na serveru
 # Otvoriti CMD
 # Zaljepiti sljedeću naredbu bez prvog hash znaka
-# c:\xampp\mysql\bin\mysql -uroot < C:\Users\Tonko\Documents\edunovapp26\SQL\vjezbe\sql_vjezbe\knjiznica.sql
-# c:\xampp\mysql\bin\mysql -uroot < C:\Users\Tonko\Documents\edunovapp26\zavrsni_rad\SQL\kuharica.sql
+#c:\xampp\mysql\bin\mysql -uroot < C:\Users\Tonko\Documents\kuharica\kuharica.hr\SQL\kuharica.sql
+
+
 
 drop database if exists kuharica;
 ##Klijent pokrenuti s --default-character-set=utf8 
@@ -37,7 +38,9 @@ create table recept(
     naziv varchar(50)  not null,
     opis varchar(5000) not null,
     vrijeme_izrade varchar(50),
-    chef int
+    chef int,
+    korisnik int
+
 );
 
 create table normativ(
@@ -53,7 +56,7 @@ create table normativ(
 create table korisnik(
 sifra int not null primary key AUTO_INCREMENT,
 email varchar(50),
-pass varchar(50)
+pass varchar(255)
 );
 
 
@@ -70,6 +73,11 @@ alter table normativ add foreign key (sastojak) references sastojak(sifra);
 
 alter table recept add foreign key (chef) references chef(sifra);
 alter table normativ add foreign key (jedinica_mjere) references jedinica_mjere(sifra);
+
+alter table recept add foreign key (korisnik) references korisnik(sifra);
+
+
+
 
 
 
@@ -88,6 +96,7 @@ alter table normativ add foreign key (jedinica_mjere) references jedinica_mjere(
 #drop table sastojak;
 #drop table jedinica_mjere;
 #drop table chef;
+#drop table korisnik;
 
 #recept
 #pokušati staviti vrijeme izrade na varchar
@@ -107,7 +116,7 @@ insert into jedinica_mjere(naziv)
 #korisnik 
 
 insert into korisnik(email, pass)
-            values('', '');
+            values('gennaro@gennaro', 'password');
 
 
 
